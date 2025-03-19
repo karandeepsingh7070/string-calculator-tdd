@@ -3,13 +3,21 @@
 // step 3 -> handle new lines between numbers (instead of commas)
 // step 4 -> Support different delimiters (“//[delimiter]\n[numbers…]” for example “//;\n1;2”)
 
+import { findDelimeterDeclaration } from "./helper";
+
 export function Add(strNumbers) {
 
     if(!strNumbers.length) return 0
 
-    const nums = strNumbers.split(/[\n,]/).map(num => parseInt(num, 10)); // spliting numbers with new line and comma's
+    const toAvoid = [",", "\n"]
+    const customDelimeter = findDelimeterDeclaration(strNumbers)
+    if(customDelimeter) toAvoid.push(customDelimeter)
 
-    let result = nums.reduce((sum,num) => sum + num, 0)
+    const delimiterRegex = new RegExp(`[${toAvoid.join("")}]`)
+
+    const nums = strNumbers.split(delimiterRegex).map(num => parseInt(num, 10)); // spliting numbers with new line and comma's
+
+    let result = nums.reduce((sum,num) => sum + (isNaN(num) ? 0 : num), 0)
     return result
 }
 

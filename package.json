@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A string caluclator using TDD approach",
   "main": "index.js",
+  "type" : "module",
   "scripts": {
+    "dev": "node index.js",
     "test": "vitest"
   },
   "author": "Karan",
