@@ -1,0 +1,14 @@
+{
+  "name": "string-calculator",
+  "version": "1.0.0",
+  "description": "A string caluclator using TDD approach",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "Karan",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^3.0.9"
+  }
+}
