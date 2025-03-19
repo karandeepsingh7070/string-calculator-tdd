@@ -5,21 +5,26 @@
 
 export function Add(strNumbers) {
 
-    if(strNumbers == "") return 0
+    if(!strNumbers.length) return 0
 
-    const toAvoid = [",", "\n", "/", ";"]
-    
-    let nums = []
-
-    for(let i = 0; i < strNumbers.length; i++) {
-        if(toAvoid.some((delimiter) => strNumbers[i] == delimiter)) continue // incase delimiter was found
-        nums.push(parseInt(strNumbers[i], 10))
-    }
-    // const nums = strNumbers.map((num) => {
-    //     if(toAvoid.some((delimiter) => num == delimiter)) return 0
-    //     return parseInt(num, 10)
-    // })
+    const nums = strNumbers.split(/[\n,]/).map(num => parseInt(num, 10)); // spliting numbers with new line and comma's
 
     let result = nums.reduce((sum,num) => sum + num, 0)
     return result
 }
+
+// console.log(Add("1,-2,-3"))
+
+
+
+// Experimental Code
+    // const toAvoid = [",", "\n", "/", ";"]
+    // let nums = []
+    // for(let i = 0; i < strNumbers.length; i++) {
+    //     if(toAvoid.some((delimiter) => strNumbers[i] == delimiter)) continue // incase delimiter was found
+    //     nums.push(parseInt(strNumbers[i], 10))
+    // }
+    // const nums = strNumbers.map((num) => {
+    //     if(toAvoid.some((delimiter) => num == delimiter)) return 0
+    //     return parseInt(num, 10)
+    // })
