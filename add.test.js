@@ -14,3 +14,9 @@ describe('String Calculator - Step 1',() => {
         expect(Add("7,9")).toBe(16);
     });
 })
+
+describe('String Calculator - Step 2', () => {
+    it('should return the sum of multiple numbers', () => {
+        expect(Add("1,2,3,4")).toBe(10);
+    });
+});
