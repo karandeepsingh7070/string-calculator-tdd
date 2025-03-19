@@ -62,7 +62,17 @@ describe("String Calculator - Step 6 (Ignore numbers > 1000)", () => {
 
 
 describe("String Calculator - Step 7 (Delimiters can be of any length)", () => {
-    it("should ignore numbers greater than 1000", () => {
+    it("should support a custom delimiter of any length", () => {
         expect(Add("//[***]\n1***2***3")).toBe(6);
+    });
+});
+
+describe("String Calculator - Step 8 (Multiple Delimiters of any length)", () => {
+    it("should support a multiple custom delimiter of any length", () => {
+        expect(Add("//[*][%]\n1*2%3")).toBe(6);
+    });
+
+    it("should support a multiple custom delimiter of any length", () => {
+        expect(Add("//[$$][**]\n2$$3**4")).toBe(9);
     });
 });

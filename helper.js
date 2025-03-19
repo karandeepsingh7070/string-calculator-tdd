@@ -7,9 +7,11 @@ function findDelimeterDeclaration(strNumbers) {
         let delimeter = strNumbers.substring(2,declarationEnd) // will extract the delimeter
         if(delimeter.match(/\[.*?\]/)) { // to check if brackets are present
             // console.log(delimeter.substring(1,delimeter.length - 1))
-            return delimeter.substring(1,delimeter.length - 1)
+            const delimiters = [...delimeter.matchAll(/\[(.*?)\]/g)].map(m => m[1]);
+            // console.log(delimiters)
+            return delimiters
         }
-        return delimeter
+        return [delimeter] // converting into array to match multiple delimiter scenerio
     }
 }
 

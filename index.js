@@ -5,6 +5,7 @@
 // step 5 -> negative number will throw an exception “negatives not allowed”
 // bonus step 6 -> Numbers bigger than 1000 should be ignored
 // bonus step 7 -> Delimiters can be of any length
+// bonus step 8 -> Allow multiple delimiters
 
 import { checkForNegatives, findDelimeterDeclaration } from "./helper.js";
 
@@ -14,7 +15,7 @@ export function Add(strNumbers) {
 
     const toAvoid = [",", "\n"]
     const customDelimeter = findDelimeterDeclaration(strNumbers)
-    if(customDelimeter) toAvoid.push(customDelimeter)
+    if(customDelimeter) toAvoid.push(...customDelimeter)
 
     const delimiterRegex = new RegExp(`[${toAvoid.join("")}]`)
 
@@ -27,7 +28,7 @@ export function Add(strNumbers) {
 }
 
 // console.log(Add("1,-2,-3"))
-// console.log(Add("//[***]\n1***2***3"))
+console.log(Add("//*\n1***2***3"))
 
 
 
