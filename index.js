@@ -3,10 +3,22 @@
 // step 3 -> handle new lines between numbers (instead of commas)
 
 export function Add(strNumbers) {
-    
+
     if(strNumbers == "") return 0
 
-    const nums = strNumbers.split(',').map(num => parseInt(num, 10));
+    const toAvoid = [",", "\n"]
+    
+    let nums = []
+
+    for(let i = 0; i < strNumbers.length; i++) {
+        if(toAvoid.some((delimiter) => strNumbers[i] == delimiter)) continue // incase delimiter was found
+        nums.push(parseInt(strNumbers[i], 10))
+    }
+    // const nums = strNumbers.map((num) => {
+    //     if(toAvoid.some((delimiter) => num == delimiter)) return 0
+    //     return parseInt(num, 10)
+    // })
+
     let result = nums.reduce((sum,num) => sum + num, 0)
     return result
 }
