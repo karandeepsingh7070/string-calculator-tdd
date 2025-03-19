@@ -67,12 +67,19 @@ describe("String Calculator - Step 7 (Delimiters can be of any length)", () => {
     });
 });
 
-describe("String Calculator - Step 8 (Multiple Delimiters of any length)", () => {
-    it("should support a multiple custom delimiter of any length", () => {
+describe("String Calculator - Step 8 (Multiple Delimiters)", () => {
+    it("should support a multiple custom delimiter of one char length", () => {
         expect(Add("//[*][%]\n1*2%3")).toBe(6);
     });
 
-    it("should support a multiple custom delimiter of any length", () => {
+    it("should support a multiple custom delimiter of one char length", () => {
         expect(Add("//[$$][**]\n2$$3**4")).toBe(9);
     });
 });
+
+describe("String Calculator - Step 9 (Multiple Delimiters of any length)", () => {
+    it("should support a multiple custom delimiter of any length", () => {
+        expect(Add("//[***][%%%]\n1***2%%%3")).toBe(6);
+    });
+});
+"//[***][%%%]\n1***2%%%3"

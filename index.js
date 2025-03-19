@@ -6,6 +6,7 @@
 // bonus step 6 -> Numbers bigger than 1000 should be ignored
 // bonus step 7 -> Delimiters can be of any length
 // bonus step 8 -> Allow multiple delimiters
+// bonu step 9 -> make sure you can also handle multiple delimiters with length longer than one char
 
 import { checkForNegatives, findDelimeterDeclaration } from "./helper.js";
 
