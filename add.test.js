@@ -26,3 +26,9 @@ describe('String Calculator - Step 3', () => {
         expect(Add("1\n2,3")).toBe(6);
     });
 });
+
+describe("String Calculator - Step 4", () => {
+    it("should support a single custom delimiter", () => {
+        expect(Add("//;\n2;7")).toBe(9);
+    });
+});
