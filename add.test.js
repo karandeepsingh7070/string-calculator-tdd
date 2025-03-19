@@ -59,3 +59,10 @@ describe("String Calculator - Step 6 (Ignore numbers > 1000)", () => {
         expect(Add("1000,1")).toBe(1001);
     });
 });
+
+
+describe("String Calculator - Step 7 (Delimiters can be of any length)", () => {
+    it("should ignore numbers greater than 1000", () => {
+        expect(Add("//[***]\n1***2***3")).toBe(6);
+    });
+});

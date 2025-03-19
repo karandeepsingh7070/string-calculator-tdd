@@ -4,8 +4,9 @@
 // step 4 -> Support different delimiters (“//[delimiter]\n[numbers…]” for example “//;\n1;2”)
 // step 5 -> negative number will throw an exception “negatives not allowed”
 // bonus step 6 -> Numbers bigger than 1000 should be ignored
+// bonus step 7 -> Delimiters can be of any length
 
-import { checkForNegatives, findDelimeterDeclaration } from "./helper";
+import { checkForNegatives, findDelimeterDeclaration } from "./helper.js";
 
 export function Add(strNumbers) {
 
@@ -26,6 +27,7 @@ export function Add(strNumbers) {
 }
 
 // console.log(Add("1,-2,-3"))
+// console.log(Add("//[***]\n1***2***3"))
 
 
 
