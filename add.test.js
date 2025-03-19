@@ -49,3 +49,13 @@ describe("String Calculator - Step 5 (negatives not allowed)", () => {
         expect(() => Add("//;\n1;-2;3")).toThrow("negatives not allowed: -2");
     });
 });
+
+describe("String Calculator - Step 6 (Ignore numbers > 1000)", () => {
+    it("should ignore numbers greater than 1000", () => {
+        expect(Add("2,1001")).toBe(2);
+    });
+
+    it("should still include 1000 as a valid number", () => {
+        expect(Add("1000,1")).toBe(1001);
+    });
+});

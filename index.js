@@ -3,6 +3,7 @@
 // step 3 -> handle new lines between numbers (instead of commas)
 // step 4 -> Support different delimiters (“//[delimiter]\n[numbers…]” for example “//;\n1;2”)
 // step 5 -> negative number will throw an exception “negatives not allowed”
+// bonus step 6 -> Numbers bigger than 1000 should be ignored
 
 import { checkForNegatives, findDelimeterDeclaration } from "./helper";
 
@@ -20,7 +21,7 @@ export function Add(strNumbers) {
 
     checkForNegatives(nums)
 
-    let result = nums.reduce((sum,num) => sum + (isNaN(num) ? 0 : num), 0)
+    let result = nums.reduce((sum,num) => sum + (isNaN(num) || num > 1000 ? 0 : num), 0)
     return result
 }
 
