@@ -20,3 +20,9 @@ describe('String Calculator - Step 2', () => {
         expect(Add("1,2,3,4")).toBe(10);
     });
 });
+
+describe('String Calculator - Step 3', () => {
+    it('should handle new lines between numbers', () => {
+        expect(Add("1\n2,3")).toBe(6);
+    });
+});

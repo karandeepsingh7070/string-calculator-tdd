@@ -1,5 +1,6 @@
 // step 1 -> a simple add String function - The method can take up to two numbers, separated by commas, and will return their sum. 
-// step 2 - Allow the Add method to handle an unknown amount of numbers
+// step 2 -> Allow the Add method to handle an unknown amount of numbers
+// step 3 -> handle new lines between numbers (instead of commas)
 
 export function Add(strNumbers) {
     
