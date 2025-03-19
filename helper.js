@@ -8,4 +8,12 @@ function findDelimeterDeclaration(strNumbers) {
     }
 }
 
-export {findDelimeterDeclaration}
+function checkForNegatives(numbers) {
+    const negatives = numbers.filter(num => num < 0);
+    if (negatives.length) {
+        throw new Error(`negatives not allowed: ${negatives.join(", ")}`);
+    }
+}
+
+
+export {findDelimeterDeclaration, checkForNegatives}

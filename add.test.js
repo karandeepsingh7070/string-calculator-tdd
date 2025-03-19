@@ -35,3 +35,17 @@ describe("String Calculator - Step 4", () => {
         expect(Add("//;\n2;7")).toBe(9);
     });
 });
+
+describe("String Calculator - Step 5 (negatives not allowed)", () => {
+    it("should throw an error for a single negative number", () => {
+        expect(() => Add("1,-2,3")).toThrow("negatives not allowed: -2");
+    });
+
+    it("should throw an error for multiple negative numbers", () => {
+        expect(() => Add("1,-2,-3")).toThrow("negatives not allowed: -2, -3");
+    });
+
+    it("should throw an error with custom delimiters and negatives", () => {
+        expect(() => Add("//;\n1;-2;3")).toThrow("negatives not allowed: -2");
+    });
+});

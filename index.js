@@ -2,8 +2,9 @@
 // step 2 -> Allow the Add method to handle an unknown amount of numbers
 // step 3 -> handle new lines between numbers (instead of commas)
 // step 4 -> Support different delimiters (“//[delimiter]\n[numbers…]” for example “//;\n1;2”)
+// step 5 -> negative number will throw an exception “negatives not allowed”
 
-import { findDelimeterDeclaration } from "./helper";
+import { checkForNegatives, findDelimeterDeclaration } from "./helper";
 
 export function Add(strNumbers) {
 
@@ -16,6 +17,8 @@ export function Add(strNumbers) {
     const delimiterRegex = new RegExp(`[${toAvoid.join("")}]`)
 
     const nums = strNumbers.split(delimiterRegex).map(num => parseInt(num, 10)); // spliting numbers with new line and comma's
+
+    checkForNegatives(nums)
 
     let result = nums.reduce((sum,num) => sum + (isNaN(num) ? 0 : num), 0)
     return result
