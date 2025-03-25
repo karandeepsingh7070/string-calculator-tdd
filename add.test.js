@@ -87,5 +87,9 @@ describe("String Calculator - step 10 support for Multiplication", () => {
     it("should multiply the numbers if custom delimter is a single *", () => {
         expect(Add("//*\n1*4*3")).toBe(12);
     })
+    it("should multiply the numbers if custom delimter is a single * and value is greater than 1000", () => {
+        expect(Add("//*\n4*2000*3")).toBe(12);
+    })
 })
+
 "//[***][%%%]\n1***2%%%3"
