@@ -82,4 +82,10 @@ describe("String Calculator - Step 9 (Multiple Delimiters of any length)", () =>
         expect(Add("//[***][%%%]\n1***2%%%3")).toBe(6);
     });
 });
+
+describe("String Calculator - step 10 support for Multiplication", () => {
+    it("should multiply the numbers if custom delimter is a single *", () => {
+        expect(Add("//*\n1*4*3")).toBe(12);
+    })
+})
 "//[***][%%%]\n1***2%%%3"

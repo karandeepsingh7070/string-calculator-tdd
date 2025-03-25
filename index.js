@@ -12,35 +12,29 @@ import { checkForNegatives, findDelimeterDeclaration } from "./helper.js";
 
 export function Add(strNumbers) {
 
+    let isMultiply = false
+    let result = 0
     if(!strNumbers.length) return 0
+    const delimeter = [",", "\n"]
 
-    const toAvoid = [",", "\n"]
     const customDelimeter = findDelimeterDeclaration(strNumbers)
-    if(customDelimeter) toAvoid.push(...customDelimeter)
+    if(customDelimeter?.length) {
+        delimeter.push(...customDelimeter)
+        if(customDelimeter?.length === 1 && customDelimeter.includes("*")) { 
+            isMultiply = true}
+    }
 
-    const delimiterRegex = new RegExp(`[${toAvoid.join("")}]`)
+    const delimiterRegex = new RegExp(`[${delimeter.join("")}]`)
 
     const nums = strNumbers.split(delimiterRegex).map(num => parseInt(num, 10)); // spliting numbers with new line and comma's
-
+    // "//*\n1*4*3"
+    console.log(nums)
     checkForNegatives(nums)
-
-    let result = nums.reduce((sum,num) => sum + (isNaN(num) || num > 1000 ? 0 : num), 0)
+    if(isMultiply) {
+        result = nums.reduce((mul,num) => mul * (isNaN(num) || num > 1000 ? 1 : num), 1)
+        return result
+    }
+    result = nums.reduce((sum,num) => sum + (isNaN(num) || num > 1000 ? 0 : num), 0)
     return result
 }
-
-// console.log(Add("1,-2,-3"))
-console.log(Add("//*\n1***2***3"))
-
-
-
-// Experimental Code
-    // const toAvoid = [",", "\n", "/", ";"]
-    // let nums = []
-    // for(let i = 0; i < strNumbers.length; i++) {
-    //     if(toAvoid.some((delimiter) => strNumbers[i] == delimiter)) continue // incase delimiter was found
-    //     nums.push(parseInt(strNumbers[i], 10))
-    // }
-    // const nums = strNumbers.map((num) => {
-    //     if(toAvoid.some((delimiter) => num == delimiter)) return 0
-    //     return parseInt(num, 10)
-    // })
+Add("//*\n1*4*3")
